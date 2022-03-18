@@ -17,14 +17,9 @@ public class Tests {
         // It seems weird that `Activator.CreateInstance`, which calls the default constructor, would return `null`,
         // but apparently it can when you try to activate a `Nullable<>` type like `Nullable<int>`
         // (usually written as `int?`)
-        CheckItemValues(
-            Activator.CreateInstance(pickType)!,
-            Activator.CreateInstance(ringType)!,
-            Activator.CreateInstance(lampType)!
-        );
-    }
-
-    public static void CheckItemValues(object pick, object ring, object lamp) {
+        var pick = Activator.CreateInstance(pickType)!;
+        var ring = Activator.CreateInstance(ringType)!;
+        var lamp = Activator.CreateInstance(lampType)!;
         Assert.Multiple(
             () => {
                 // Value
